@@ -1,4 +1,4 @@
-# 十六进制课堂增强
+# ![](hexfuture.png) 十六进制课堂增强
 A gift to all students using HexFuture from Chongqing.
 
 一款帮助改善 [「十六进制课堂」](https://inclass.hexfuture.net/) 用户体验的插件。
