@@ -41,6 +41,11 @@ setInterval(function () {
         document.querySelector("header > div.finishClass > a").click()
     }
 
+    // 如果随机点名元素存在 就送走
+    if (document.querySelector("div.bottomDock > div.selectStudent")) {
+        document.querySelector("div.bottomDock > div.selectStudent").remove()
+    }
+
 
 }, 1000
 
