@@ -11,5 +11,13 @@
         "16": "hexfuture.png",
         "48": "hexfuture.png",
         "128": "hexfuture.png"
+    },
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab": true
+    },
+    "permissions": ["storage"],
+    "background": {
+        "service_worker": "scripts/background.js"
     }
 }

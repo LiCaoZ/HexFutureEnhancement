@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>选项 | 十六进制课堂增强</title>
+    <link rel="stylesheet" href="css/mdui.min.css">
+    <script src="js/mdui.min.js"></script>
+
+</head>
+
+<body class="mdui-theme-primary-blue-grey mdui-theme-accent-blue">
+    <div class="mdui-appbar">
+        <div class="mdui-toolbar mdui-color-theme">
+            <span class="mdui-typo-title">选项</span>
+        </div>
+    </div>
+    <div class="mdui-container">
+        <div class="mdui-typo">
+            <h1>选项</h1>
+            <p>十六进制课堂增强扩展的选项。</p>
+            <!-- 主页 -->
+            <h2>主页选项</h2>
+            <!-- 替换主页名人名言毒鸡汤为古诗词 -->
+            <label class="mdui-switch" id="replaceSaying">
+                <input type="checkbox" id="replaceSaying" />
+                <i class="mdui-switch-icon"></i>
+                替换主页名人名言毒鸡汤为古诗词
+            </label>
+            <span class="mdui-text-color-grey">换掉换掉，一定要换掉</span>
+            </br>
+            <!-- 自动更换诗词 -->
+            <label class="mdui-switch" id="autoChangePoetry">
+                <input type="checkbox" id="autoChangePoetry" />
+                <i class="mdui-switch-icon"></i>
+                自动更换诗词
+            </label>
+            <span class="mdui-text-color-grey">每分钟刷新。如果没有开启「替换主页名人名言毒鸡汤为古诗词」，则本选项无效。</span>
+        </div>
+        <script src="scripts/options.js" async></script>
+
+</html>
