@@ -1,7 +1,9 @@
 # ![](hexfuture.png) 十六进制课堂增强
 A gift to all students using HexFuture from Chongqing.
 
-一款帮助改善 [「十六进制课堂」](https://inclass.hexfuture.net/) 用户体验的插件。
+一款帮助改善 [「十六进制课堂」](https://inclass.hexfuture.net/) 用户体验的插件。现已上架 Microsoft Edge 外接程序商店，点击 [这里](https://microsoftedge.microsoft.com/addons/detail/ejlpgfdcoaofgnhkjbpemhnpoihaimck) 为 Edge 浏览器安装！
+
+![](https://user-images.githubusercontent.com/67832651/232283289-e9d40a4e-9407-4076-a2b4-30421a821c77.png)
 
 ## 功能 Features
 
