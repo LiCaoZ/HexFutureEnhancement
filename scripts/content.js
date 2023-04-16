@@ -92,6 +92,25 @@ setInterval(function () {
 
 // 十六进制的课程表存在 localStorage 里，直接用 JS 改 DOM 应该就能自由发挥周末课程。
 
+// 如果在主页
+if (document.querySelector("header > div.startClass > a")) {
+    var syllabus_parameter = localStorage.getItem("inclass-syllabus-parameter")
+    // response data sample: '{"dayCount":7,"classCount":9}'
+    var syllabus_parameter_json = JSON.parse(syllabus_parameter)
+    var dayCount = syllabus_parameter_json.dayCount
+    if (dayCount == 5) {
+        // 拼接 dayCount = 7 的 JSON
+        var syllabus_parameter_json_7 = {
+            "dayCount": 7,
+            "classCount": syllabus_parameter_json.classCount
+        }
+        // 转换成字符串
+        var syllabus_parameter_7 = JSON.stringify(syllabus_parameter_json_7)
+        // 存入 localStorage
+        localStorage.setItem("inclass-syllabus-parameter", syllabus_parameter_7)
+    }
+}
+
 // 如果开启了替换首页名人名言
 // chrome.runtime.sendMessage({ command: "getLocalStorage", key: "replaceSaying" }, function (response) {
 // if ((response) == "true") {
