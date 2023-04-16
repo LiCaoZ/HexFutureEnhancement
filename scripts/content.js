@@ -94,6 +94,8 @@ setInterval(function () {
 
 // 如果在主页
 if (document.querySelector("header > div.startClass > a")) {
+    // 获取今天是周几
+    var day = new Date().getDay()
     var syllabus_parameter = localStorage.getItem("inclass-syllabus-parameter")
     // response data sample: '{"dayCount":7,"classCount":9}'
     var syllabus_parameter_json = JSON.parse(syllabus_parameter)
@@ -109,6 +111,53 @@ if (document.querySelector("header > div.startClass > a")) {
         // 存入 localStorage
         localStorage.setItem("inclass-syllabus-parameter", syllabus_parameter_7)
     }
+
+    setTimeout(function () {
+        // 如果今天是周末
+        if (day == 6 || day == 0) {
+            if (day == 0) {
+                day = 7
+            }
+            if (day == 6) {
+                day = 6
+            }
+            // 在当周课表中找到对应列的 a 标签
+            var syllabus = document.querySelectorAll("main > div.syllabus > div.week > div#syllabus > div.oneDay")
+            var syllabusWeekToday = syllabus[day]
+            var syllabusWeekToday_a = syllabusWeekToday.querySelectorAll("a")
+            // 将除第一个和最后一个之外的的 a 都替换到首页 id="cellToday0" 到 id="cellToday8"，并添加 id="cellToday0" 至 id="cellToday(classCount - 1)" 属性
+            for (var i = 1; i < syllabusWeekToday_a.length; i++) {
+                var cellWeekToday = document.querySelector("main > div.syllabus > div#syllabusToday > a#cellToday" + (i - 1))
+                var cellWeekToday_html = syllabusWeekToday_a[i].outerHTML
+                cellWeekToday.outerHTML = cellWeekToday_html
+
+            }
+
+            var syllabusToday = document.querySelector("main > div.syllabus > div.today")
+            var syllabusTodayHTML = syllabusToday.innerHTML
+            var syllabusTodayHTMLNew = syllabusTodayHTML.replace(/0\|/g, day + "|")
+            syllabusToday.innerHTML = syllabusTodayHTMLNew
+
+            setInterval(function () {
+                // 如果今天的 syllabus 没有 today 类
+                if (!document.querySelector("main > div.syllabus > div.week > div#syllabus > div.oneDay:nth-child(" + (day + 2) + ")").classList.contains("today")) {
+                    // 把错误安放在星期一标签上的 today 移除，并添加到对应标签上
+                    var syllabusWrong = document.querySelector("main > div.syllabus > div.week > div#syllabus > div.today")
+                    syllabusWrong.classList.remove("today")
+                    var syllabusRight = document.querySelector("main > div.syllabus > div.week > div#syllabus > div.oneDay:nth-child(" + (day + 2) + ")")
+                    syllabusRight.classList.add("today")
+                }
+                // 如果除今天的 syllabus 外还有别的 syllabus 有 today 类，则移除
+                var syllabusWrong = document.querySelectorAll("main > div.syllabus > div.week > div#syllabus > div.oneDay")
+                for (var i = 0; i < syllabusWrong.length; i++) {
+                    if (syllabusWrong[i].classList.contains("today") && i != day) {
+                        syllabusWrong[i].classList.remove("today")
+                    }
+                }
+            }, 500)
+        }
+    }, 2000)
+
 }
 
 // 如果开启了替换首页名人名言
