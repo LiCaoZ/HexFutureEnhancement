@@ -15,10 +15,16 @@ A gift to all students using HexFuture from Chongqing.
 
 - [x] 下课前五分钟、下课时在课程信息处弱提醒
 
-![屏幕截图 2023-04-11 134601](https://user-images.githubusercontent.com/67832651/232274643-bf50dc34-0df8-4a9f-87de-df53bdb2bec0.png)
+![](https://user-images.githubusercontent.com/67832651/232274643-bf50dc34-0df8-4a9f-87de-df53bdb2bec0.png)
 
-![屏幕截图 2023-04-11 134828](https://user-images.githubusercontent.com/67832651/232274658-14ba089a-aa00-42ab-8923-ad4ac1dd6c84.png)
+![](https://user-images.githubusercontent.com/67832651/232274658-14ba089a-aa00-42ab-8923-ad4ac1dd6c84.png)
 
-- [ ] 修复其原生不支持周末课程表的问题
+- [x] 修复其原生不支持周末课程表的问题
+
+![](https://user-images.githubusercontent.com/67832651/232281364-80b9c865-fd42-41c5-a543-a3d750ab57dd.png)
+
+![](https://user-images.githubusercontent.com/67832651/232281431-6210dd23-7e1d-439a-8660-8c58454055a2.png)
+
+**「修复周末课程表」功能目前暂不支持通过首页编辑周末课表，请前往课程表总览执行编辑操作**
 
 PR & Issue is welcomed!
