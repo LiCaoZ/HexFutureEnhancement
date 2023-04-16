@@ -7,15 +7,17 @@ A gift to all students using HexFuture from Chongqing.
 
 - [x] 将未上课时的毒鸡汤替换为今日诗词（感谢 [今日诗词](https://www.jinrishici.com/#) 提供根据时间、地点、天气、事件智能推荐的古诗词）
 
-![image](https://user-images.githubusercontent.com/67832651/230756976-7b1e34d4-d533-4e75-a2c1-9994f66f3aab.png)
+![](https://user-images.githubusercontent.com/67832651/230756976-7b1e34d4-d533-4e75-a2c1-9994f66f3aab.png)
 
 - [x] 送走惊险刺激的随机点名
 
-![image](https://user-images.githubusercontent.com/67832651/230757053-8bd2ecdd-30d4-4a21-8331-456883250a2e.png)
+![](https://user-images.githubusercontent.com/67832651/230757053-8bd2ecdd-30d4-4a21-8331-456883250a2e.png)
 
-- [x] 温馨提醒老师按时下课
+- [x] 下课前五分钟、下课时在课程信息处弱提醒
 
-![Inked5ad02e8278499d440bbe8839390bb9db](https://user-images.githubusercontent.com/67832651/230757173-fefb0596-c3ae-49f6-b115-d8388b98c67a.jpg)
+![屏幕截图 2023-04-11 134601](https://user-images.githubusercontent.com/67832651/232274643-bf50dc34-0df8-4a9f-87de-df53bdb2bec0.png)
+
+![屏幕截图 2023-04-11 134828](https://user-images.githubusercontent.com/67832651/232274658-14ba089a-aa00-42ab-8923-ad4ac1dd6c84.png)
 
 - [ ] 修复其原生不支持周末课程表的问题
 
