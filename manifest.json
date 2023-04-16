@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "十六进制课堂增强",
     "description": "十六进制课堂增强组件",
-    "version": "0.0.2",
+    "version": "0.1.0",
     "content_scripts": [{
         "js": ["scripts/content.js"],
         "matches": ["https://inclass.hexfuture.net/*"]
