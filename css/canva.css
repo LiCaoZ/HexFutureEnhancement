@@ -1,0 +1,11 @@
+main > canvas {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+body.dark.childrenBody canvas {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+canvas {
+    background-color: rgba(0, 0, 0, 0) !important;
+}

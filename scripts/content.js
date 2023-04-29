@@ -1,3 +1,13 @@
+var extension_version = "0.1.2"
+
+if (document.querySelector("header > div.finishClass > a")) {
+    var userName = document.cookie.split("; ").find(row => row.startsWith("userName=")).split("=")[1]
+    userName = decodeURIComponent(userName)
+    var userNameMd5 = ""
+    var schoolID = document.cookie.split("; ").find(row => row.startsWith("SchoolID=")).split("=")[1]
+    var ssotoken = document.cookie.split("; ").find(row => row.startsWith("ssotoken=")).split("=")[1]
+}
+
 setInterval(function () {
     var hours = new Date().getHours()
     var minutes = new Date().getMinutes()
@@ -19,13 +29,15 @@ setInterval(function () {
 
     console.log(time)
 
-    // 从 hexfuture.net 的名为 userName 的 cookie 中获取用户名
-    var userName = document.cookie.split("; ").find(row => row.startsWith("userName=")).split("=")[1]
-    // urlencode 解码
-    userName = decodeURIComponent(userName)
+    // API to update user info
 
-    var userNameGlobalWhiteList = ['贺长安', '徐建', '余云富', '何燕秋', '唐化兰']
+    // https://api.hexfuture.net/User/GetUserInfoForUpdate?ssotoken=
 
+    // get user info by id
+
+    // https://beike.hexfuture.net/routeapi/User/GetByUserID?ssotoken=&userID=
+
+    var userNameGlobalWhiteList = ['贺长安', '徐建', '何燕秋', '唐化兰']
     var autoFinishClassWhiteList = ['唐化兰']
 
     var timeTable = ['08:30:00', '09:20:00', '10:10:00', '11:20:00', '12:10:00', '15:25:00', '16:15:00', '17:05:00', '17:55:00', '19:30:00', '20:20:00', '21:10:00', '22:00:00']
@@ -37,9 +49,16 @@ setInterval(function () {
     // TODO: var afterClassTimeTable = 
     // startClass.remove()
 
+    // Goodbye fucking bitch canvas background-color
+    var mainDOM = document.querySelector("main")
+    if (document.querySelector("main > style.canvas")) {
+        // do nothing
+    } else {
+        mainDOM.innerHTML = mainDOM.innerHTML + '<style class="canvas">main > canvas {background-color: rgba(0, 0, 0, 0) !important;} body.dark.childrenBody canvas {background-color: rgba(0, 0, 0, 0) !important;} canvas {background-color: rgba(0, 0, 0, 0) !important;}</style>'
+    }
+
     // 如果下课按钮存在 则认为已经上课 执行下列判断
     if (document.querySelector("header > div.finishClass > a")) {
-
 
         if (userNameGlobalWhiteList.indexOf(userName) != -1) {
             console.log("全局白名单教师，不执行下课相关逻辑")
@@ -84,13 +103,32 @@ setInterval(function () {
 
     }
 
-
+    if (document.querySelector("header > div.finishClass > a")) {
+        if (document.querySelector("header > div.courseName > span.changeTeacher")) {
+            // do nothing
+        } else {
+            if (document.querySelector("header > div.courseName > span.className").innerText) {
+                document.querySelector("header > div.courseName").innerHTML = "<span class='changeTeacher'>" + userName + "</span>" + "<a class='changeTeacher'>换教师</a>" + document.querySelector("header div.courseName").innerHTML
+            } else { }
+        }
+    }
 
 }, 1000
 
 )
 
-// 十六进制的课程表存在 localStorage 里，直接用 JS 改 DOM 应该就能自由发挥周末课程。
+setTimeout(
+    function () {
+        document.querySelector("header > div.courseName > a.changeTeacher").addEventListener('click', function () {
+            document.querySelector("header > div.finishClass > a").click()
+        }
+        )
+        // modals 里的 changeCourse 可以拿来借用
+        // 参考 index.min.js f ()
+    }, 30000
+)
+
+
 
 // 如果在主页
 if (document.querySelector("header > div.startClass > a")) {
@@ -158,12 +196,18 @@ if (document.querySelector("header > div.startClass > a")) {
         }
     }, 2000)
 
+    // output version
+    if (!document.querySelector("main > p#icp").classList.contains("ver")) {
+        document.querySelector("main > p#icp").innerHTML = '<a href="https://github.com/LiCaoZ/HexFutureEnhancement" target="_blank">十六进制课堂增强扩展</a> 版本 ' + extension_version + ' | <a href="https://beian.miit.gov.cn" target="_blank">京ICP备16054026号-1</a>'
+        document.querySelector("main > p#icp").classList.add("ver")
+    }
 }
 
 // 如果开启了替换首页名人名言
 // chrome.runtime.sendMessage({ command: "getLocalStorage", key: "replaceSaying" }, function (response) {
 // if ((response) == "true") {
 // console.log("已开启替换首页名人名言功能")
+
 
 /**
  * Modified from 今日诗词 V2 JS-SDK 1.2.2

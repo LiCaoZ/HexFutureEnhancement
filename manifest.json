@@ -1,23 +1,31 @@
 {
     "manifest_version": 3,
     "name": "十六进制课堂增强",
-    "description": "十六进制课堂增强组件",
-    "version": "0.1.0",
-    "content_scripts": [{
-        "js": ["scripts/content.js"],
-        "matches": ["https://inclass.hexfuture.net/*"]
-    }],
+    "description": "一款帮助改善 「十六进制课堂」 用户体验的插件。",
+    "version": "0.1.2",
+    "content_scripts": [
+        {
+            "js": [
+                "scripts/content.js"
+            ],
+            "matches": [
+                "https://inclass.hexfuture.net/*"
+            ]
+        }
+    ],
     "icons": {
-        "16": "hexfuture.png",
-        "48": "hexfuture.png",
-        "128": "hexfuture.png"
+        "48": "hexfuture.png"
     },
     "options_ui": {
         "page": "options.html",
         "open_in_tab": true
     },
-    "permissions": ["storage"],
-    "background": {
-        "service_worker": "scripts/background.js"
+    "permissions": [
+        "storage"
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "hfe@hfe.licaoz.com"
+        }
     }
 }
